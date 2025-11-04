@@ -5,6 +5,7 @@ class Usuario(models.Model):
     username = models.CharField(max_length=150)
     email = models.EmailField(unique=True)
     contraseña = models.CharField(max_length=128)
+    foto = models.URLField(blank=True, null=True)
 
     class Meta:
         verbose_name = "Usuario"
@@ -17,6 +18,7 @@ class Pregunta(models.Model):
     titulo = models.CharField(max_length=200)
     contenido = models.TextField(max_length=2000)
     autor = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    foto = models.URLField(blank=True, null=True)
 
     class Meta:
         verbose_name = "Pregunta"
@@ -29,6 +31,7 @@ class Respuesta(models.Model):
     contenido = models.TextField(max_length=2000)
     autor = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     pregunta = models.ForeignKey(Pregunta, on_delete=models.CASCADE)
+    foto = models.URLField(blank=True, null=True)
 
     class Meta:
         verbose_name = "Respuesta"
