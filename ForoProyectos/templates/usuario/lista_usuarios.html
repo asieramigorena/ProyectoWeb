@@ -1,0 +1,15 @@
+<h1>Listado de Usuarios</h1>
+
+<ul>
+    {% for usuario in usuarios %}
+        <li>
+            <a href="{% url 'detalle_usuario' usuario.id %}">
+
+                {{ usuario.username }}
+            </a> 
+            {% if usuario.email %} - {{ usuario.email }}{% endif %}
+        </li>
+    {% empty %}
+        <li>No hay ligas registradas.</li>
+    {% endfor %}
+</ul>
