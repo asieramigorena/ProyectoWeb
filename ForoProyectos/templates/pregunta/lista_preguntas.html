@@ -1,0 +1,15 @@
+<h1>Listado de Preguntas</h1>
+
+<ul>
+    {% for pregunta in preguntas %}
+        <li>
+            <a href="{% url 'detalle_preguntas' pregunta.id %}">
+
+                {{ pregunta.titulo }}
+            </a> 
+            {% if pregunta.contenido %} - {{ pregunta.contenido }}{% endif %}
+        </li>
+    {% empty %}
+        <li>No hay preguntas registradas.</li>
+    {% endfor %}
+</ul>

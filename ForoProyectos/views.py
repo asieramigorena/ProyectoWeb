@@ -14,3 +14,14 @@ def detalle_usuario(request, pk):
     usuario = get_object_or_404(Usuario, pk=pk)
     context = {'usuario': usuario}
     return render(request, 'usuario/detalle_usuario.html', context)
+
+def lista_preguntas(request):
+    preguntas =Pregunta.objects.all()
+    return render(request, 'pregunta/lista_preguntas.html', {'preguntas': preguntas})
+
+def detalle_preguntas(request, pk):
+    pregunta = get_object_or_404(Pregunta, pk=pk)
+    context = {'pregunta': pregunta}
+    return render(request, 'pregunta/detalle_preguntas.html', context)
+
+
