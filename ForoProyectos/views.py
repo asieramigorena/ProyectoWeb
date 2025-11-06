@@ -24,4 +24,11 @@ def detalle_preguntas(request, pk):
     context = {'pregunta': pregunta}
     return render(request, 'pregunta/detalle_preguntas.html', context)
 
+def lista_respuestas(request):
+    respuestas = Respuesta.objects.all()
+    return render(request, 'respuesta/lista_respuestas.html', {'respuestas': respuestas})
 
+def detalle_respuestas(request, pk):
+    respuestas = get_object_or_404(Respuesta, pk=pk)
+    context = {'respuesta': respuestas}
+    return render(request, 'respuesta/detalle_respuestas.html', context)

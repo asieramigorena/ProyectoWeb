@@ -9,9 +9,9 @@
         <p>Bienvenido al foro de proyectos. Aquí podrás encontrar y compartir información sobre diversos proyectos web.</p>
         <h2>¿Qué te gustaría ver hoy?</h2>
         <ul>
-            <li><a href="usuario">USUARIOS</a></li>
-            <li><a href="pregunta">PREGUNTAS</a></li>
-            <li><a href="respuesta/lista_respuestas.html">RESPUESTAS</a></li>
+            <li><a href="{% url 'lista_usuarios' %}">USUARIOS</a></li>
+            <li><a href="{% url 'lista_preguntas' %}">PREGUNTAS</a></li>
+            <li><a href="{% url 'lista_respuestas' %}">RESPUESTAS</a></li>
         </ul>
     </body>
 </html>
