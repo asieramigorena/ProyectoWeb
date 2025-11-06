@@ -10,5 +10,18 @@
         <p><strong>Email:</strong> {{ usuario.email }}</p>
 
         <img src="{{ usuario.foto}}" alt="foto" width="500px">
+
+        <h2>Preguntas realizadas por {{ usuario.username }}</h2>
+
+    <ul>
+        {% for pregunta in usuario.preguntas.all %}
+            <li>
+                <a href="{% url 'detalle_preguntas' pregunta.id %}">{{ pregunta.titulo }}</a>
+            </li>
+        {% empty %}
+            <li>Este usuario no ha hecho ninguna pregunta.</li>
+        {% endfor %}
+</ul>
+
     </body>
 </html>

@@ -17,7 +17,7 @@ class Usuario(models.Model):
 class Pregunta(models.Model):
     titulo = models.CharField(max_length=200)
     contenido = models.TextField(max_length=2000)
-    autor = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    autor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name="preguntas")
     foto = models.URLField(blank=True, null=True)
 
     class Meta:
