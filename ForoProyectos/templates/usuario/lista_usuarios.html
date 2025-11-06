@@ -1,16 +1,27 @@
-<h1>Listado de Usuarios</h1>
+<!DOCTYPE html>
+<html lang="es">
 
-<ul>
-    {% for usuario in usuarios %}
+<head>
+
+</head>
+
+<body>
+    <h1>Listado de Usuarios</h1>
+
+    <ul>
+        {% for usuario in usuarios %}
         <li>
             <a href="{% url 'detalle_usuario' usuario.id %}">
 
                 {{ usuario.username }}
-            </a> 
+            </a>
             {% if usuario.email %} - {{ usuario.email }}{% endif %}
         </li>
-    {% empty %}
-        <li>No hay ligas registradas.</li>
-    {% endfor %}
-</ul>
-<a href="{% url 'lista_preguntas' %}">Ver todas las preguntas</a>
+        {% empty %}
+        <li>No hay usuarios registrados.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'lista_preguntas' %}">Ver todas las preguntas</a>
+</body>
+
+</html>
