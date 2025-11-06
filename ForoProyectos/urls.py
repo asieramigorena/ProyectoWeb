@@ -11,5 +11,5 @@ urlpatterns = [
     path('pregunta/<int:pk>', views.detalle_preguntas, name='detalle_preguntas'),
 
     path('respuesta/', views.lista_respuestas, name='lista_respuestas'),
-    path('respuesta/<int:pk>', views.detalle_respuestas, name='detalle_respuestas')
+    path('respuesta/<int:pk>', views.detalle_respuestas, name='detalle_respuestas'),
 ]
