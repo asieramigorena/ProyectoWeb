@@ -24,9 +24,16 @@
         <li>Este usuario no ha hecho ninguna pregunta.</li>
         {% endfor %}
     </ul>
-<<<<<<< HEAD
-=======
+
+    <ul>
+        {% for respuesta in usuario.respuestas_autor.all %}
+        <li>
+            <a href="{% url 'detalle_respuestas' respuesta.id %}">{{ respuesta.contenido }}</a>
+        </li>
+        {% empty %}
+        <li>Este usuario no ha hecho ninguna respuesta.</li>
+        {% endfor %}
+    </ul>
 </body>
->>>>>>> 38947c5633b14aab38bf8736862592c712b559bb
 
 </html>
