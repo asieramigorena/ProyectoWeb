@@ -29,9 +29,10 @@ class Pregunta(models.Model):
 
 class Respuesta(models.Model):
     contenido = models.TextField(max_length=2000)
-    autor = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    pregunta = models.ForeignKey(Pregunta, on_delete=models.CASCADE)
+    autor = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name="respuestas_autor")
+    pregunta = models.ForeignKey(Pregunta, on_delete=models.CASCADE, related_name="respuestas")
     foto = models.URLField(blank=True, null=True)
+    fecha_publicacion = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name = "Respuesta"
