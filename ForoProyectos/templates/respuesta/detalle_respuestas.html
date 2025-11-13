@@ -1,8 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Respuestas a "{{ respuesta.titulo }}"</title>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
 </head>
 <body>
     <h1>{{ respuesta.pregunta.titulo }}</h1>

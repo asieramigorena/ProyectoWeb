@@ -1,3 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Respuestas a "{{ respuesta.titulo }}"</title>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+</head>
+
+<body>
+    
+    <h1>Listado de Respuestas</h1>
+
+
+
+    {% for respuesta in respuestas %}
+        <li>
+            <a href="{% url 'detalle_respuestas' respuesta.id %}">
+
+                {{ respuesta.contenido }}
+            </a> 
+            {% if respuesta.pregunta.contenido %} - {{ respuesta.pregunta.contenido }}{% endif %}
+        </li>
+    {% empty %}
+        <li>No hay preguntas registradas.</li>
+    {% endfor %}
+
+
+
+<a href="{% url 'lista_preguntas' %}">Ver todas las preguntas</a>
+
+
+    
+      
+
+
+</body>
+</html>
+
 <h1>Listado de Respuestas</h1>
 
 
