@@ -1,34 +1,46 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Usuario, Pregunta, Respuesta
+from django.views.generic import ListView, DetailView, TemplateView
 
-# Create your views here.
-def index(request):
-    return render(request, "index.html")
+class IndexView(TemplateView):
+    template_name = "index.html"
 
-def lista_usuarios(request):
-    usuarios = Usuario.objects.all()
-    return render(request, 'usuario/lista_usuarios.html', {'usuarios': usuarios})
 
-def detalle_usuario(request, pk):
-    usuario = get_object_or_404(Usuario, pk=pk)
-    context = {'usuario': usuario}
-    return render(request, 'usuario/detalle_usuario.html', context)
+# --- Usuarios ---
+class UsuarioListView(ListView):
+    model = Usuario
+    template_name = "usuario/lista_usuarios.html"
+    context_object_name = "usuarios"
 
-def lista_preguntas(request):
-    preguntas =Pregunta.objects.all()
-    return render(request, 'pregunta/lista_preguntas.html', {'preguntas': preguntas})
 
-def detalle_preguntas(request, pk):
-    pregunta = get_object_or_404(Pregunta, pk=pk)
-    context = {'pregunta': pregunta}
-    return render(request, 'pregunta/detalle_preguntas.html', context)
+class UsuarioDetailView(DetailView):
+    model = Usuario
+    template_name = "usuario/detalle_usuario.html"
+    context_object_name = "usuario"
 
-def lista_respuestas(request):
-    respuestas = Respuesta.objects.all()
-    return render(request, 'respuesta/lista_respuestas.html', {'respuestas': respuestas})
 
-def detalle_respuestas(request, pk):
-    respuestas = get_object_or_404(Respuesta, pk=pk)
-    context = {'respuesta': respuestas}
-    return render(request, 'respuesta/detalle_respuestas.html', context)
+# --- Preguntas ---
+class PreguntaListView(ListView):
+    model = Pregunta
+    template_name = "pregunta/lista_preguntas.html"
+    context_object_name = "preguntas"
+
+
+class PreguntaDetailView(DetailView):
+    model = Pregunta
+    template_name = "pregunta/detalle_preguntas.html"
+    context_object_name = "pregunta"
+
+
+# --- Respuestas ---
+class RespuestaListView(ListView):
+    model = Respuesta
+    template_name = "respuesta/lista_respuestas.html"
+    context_object_name = "respuestas"
+
+
+class RespuestaDetailView(DetailView):
+    model = Respuesta
+    template_name = "respuesta/detalle_respuestas.html"
+    context_object_name = "respuesta"
