@@ -9,13 +9,11 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         with open("ForoProyectos/resources/respuestas.csv", newline='', encoding="utf-8-sig") as csvfile:
-            reader = csv.DictReader(csvfile, delimiter=";")  # Ajusta el delimitador si tu CSV usa otro
+            reader = csv.DictReader(csvfile, delimiter=";")
 
-            # Limpiar nombres de columna
             reader.fieldnames = [field.strip() for field in reader.fieldnames]
 
             for row in reader:
-                # Limpiar espacios de cada valor
                 row = {k.strip(): v.strip() for k, v in row.items()}
 
                 autor_id = row.get("autor")
@@ -23,12 +21,10 @@ class Command(BaseCommand):
                 contenido = row.get("contenido")
                 fecha = row.get("fecha_publicacion")
 
-                # Verificar que los campos esenciales existan
                 if not autor_id or not pregunta_id or not contenido:
                     self.stdout.write(self.style.WARNING("Fila incompleta, se omitirá"))
                     continue
 
-                # Obtener usuario y pregunta existentes
                 try:
                     autor = Usuario.objects.get(id=int(autor_id))
                 except Usuario.DoesNotExist:
@@ -41,7 +37,6 @@ class Command(BaseCommand):
                     self.stdout.write(self.style.ERROR(f"Pregunta con id {pregunta_id} no existe. Se omite la fila."))
                     continue
 
-                # Evitar duplicados
                 respuesta_existente = Respuesta.objects.filter(
                     contenido=contenido,
                     autor=autor,
@@ -52,7 +47,6 @@ class Command(BaseCommand):
                     self.stdout.write(self.style.WARNING(f"Respuesta ya existe: {contenido[:30]}..."))
                     continue
 
-                # Crear la respuesta
                 Respuesta.objects.create(
                     contenido=contenido,
                     autor=autor,
