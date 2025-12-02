@@ -37,23 +37,3 @@
 
 </body>
 </html>
-
-<h1>Listado de Respuestas</h1>
-
-
-
-    {% for respuesta in respuestas %}
-        <li>
-            <a href="{% url 'detalle_respuestas' respuesta.id %}">
-
-                {{ respuesta.contenido }}
-            </a> 
-            {% if respuesta.pregunta.contenido %} - {{ respuesta.pregunta.contenido }}{% endif %}
-        </li>
-    {% empty %}
-        <li>No hay preguntas registradas.</li>
-    {% endfor %}
-
-
-
-<a href="{% url 'lista_preguntas' %}">Ver todas las preguntas</a>
