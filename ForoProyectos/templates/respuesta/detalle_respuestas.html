@@ -1,12 +1,7 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Respuestas a "{{ respuesta.titulo }}"</title>
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-</head>
+{% block titulo %}Respuestas a "{{ respuesta.titulo }}"{% endblock %}
+{% block contenido %}
 <body>
     <h1>{{ respuesta.pregunta.titulo }}</h1>
     
@@ -15,11 +10,4 @@
     <p><strong>Fecha:</strong> {{ respuesta.fecha_publicacion }}</p>
 
     <hr>
-       
-
-    
-      
-
-
-</body>
-</html>
+{% endblock %}

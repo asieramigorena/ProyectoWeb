@@ -1,36 +1,7 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-    <html lang="es">
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-    
-
-<head>
-
-</head>
-
-<body>
-    <!-- CABECERA -->
-    <div id="header">
-        <div id="logo">
-            <h1><a href="#">ForoProyectos</a></h1>
-            <div class="slogan">Comparte y aprende entre todos</div>
-        </div>
-    </div>
-
-    <!-- MENÚ -->
-    <div id="menubar">
-        <ul id="menu">
-            <li><a href="{% url 'index' %}">Inicio</a></li>
-            <li><a href="{% url 'lista_usuarios' %}">Usuarios</a></li>
-            <li><a href="{% url 'lista_preguntas' %}">Preguntas</a></li>
-            <li><a href="{% url 'lista_respuestas' %}">Respuestas</a></li>
-        </ul>
-    </div>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <div id="site_content">
-        <div id="content">
+{% block contenido %}
             <h2>Listado de Usuarios</h2>
             <ul>
                 {% for usuario in usuarios %}
@@ -50,13 +21,4 @@
             <p>
                 <a href="{% url 'lista_preguntas' %}">Ver todas las preguntas</a>
             </p>
-        </div>
-    </div>
-
-    <!-- PIE DE PÁGINA -->
-    <div id="footer">
-        <p>&copy; 2025 ForoProyectos | Desarrollado con Django 💻</p>
-    </div>
-</body>
-
-</html>
+{% endblock %}

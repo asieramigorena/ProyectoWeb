@@ -1,15 +1,9 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="es">
+{% block titulo %}Usuario {{ usuario.username }}{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Usuario {{ usuario.username }}</title>
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-</head>
-
-<body>
+{% block contenido %}
     <h1>{{ usuario.username }}</h1>
 
     <p><strong>Email:</strong> {{ usuario.email }}</p>
@@ -37,6 +31,4 @@
         <li>Este usuario no ha hecho ninguna respuesta.</li>
         {% endfor %}
     </ul>
-</body>
-
-</html>
+{% endblock %}

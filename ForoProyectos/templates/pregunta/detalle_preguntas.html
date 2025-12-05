@@ -1,15 +1,6 @@
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Pregunta {{ pregunta.titulo }}</title>
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-</head>
-
-<body>
+{% extends 'base.html' %}
+{% block titulo %}Pregunta {{ pregunta.titulo }}{% endblock %}
+{% block contenido %}
     <h1>{{ pregunta.titulo }}</h1>
 
     <p><strong>Contenido:</strong> {{ pregunta.contenido }}</p>
@@ -30,7 +21,4 @@
             {% endfor %}
         </ul>
     {% endif %}
-
-</body>
-
-</html>
+{% endblock %}

@@ -1,30 +1,20 @@
-{% load static %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="es">
+{% block titulo %}Listado de Preguntas{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Listado de Preguntas</title>
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-</head>
-
-<body>
+{% block contenido %}
     <h1>Listado de Preguntas</h1>
-
     <ul>
         {% for pregunta in preguntas %}
-        <li>
-            <a href="{% url 'detalle_preguntas' pregunta.id %}">
+            <li>
+                <a href="{% url 'detalle_preguntas' pregunta.id %}">
 
-                {{ pregunta.titulo }}
-            </a>
-            {% if pregunta.contenido %} - {{ pregunta.contenido }}{% endif %}
-        </li>
-        {% empty %}
-        <li>No hay preguntas registradas.</li>
+                    {{ pregunta.titulo }}
+                </a>
+                {% if pregunta.contenido %} - {{ pregunta.contenido }}{% endif %}
+            </li>
+            {% empty %}
+            <li>No hay preguntas registradas.</li>
         {% endfor %}
     </ul>
-</body>
-
-</html>
+{% endblock %}

@@ -1,44 +1,11 @@
-{% load static %}
+{% extends "base.html" %}
 
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>ForoProyectos</title>
-        <link rel="stylesheet" href="{% static 'style/style.css' %}">
-    </head>
-    <body>
-        
-        <div id="header">
-            <div id="logo">
-                <h1><a href="#">ForoProyectos</a></h1>
-                <div class="slogan">Comparte y aprende entre todos</div>
-            </div>
-        </div>
-    
-        <div id="menubar">
-            <ul id="menu">
-                <li class="current"><a href="#">Inicio</a></li>
-                <li><a href="{% url 'lista_usuarios' %}">Usuarios</a></li>
-                <li><a href="{% url 'lista_preguntas' %}">Preguntas</a></li>
-                <li><a href="{% url 'lista_respuestas' %}">Respuestas</a></li>
-            </ul>
-        </div>
-    
-        <div id="site_content">
-            <div id="content">
-                <h2>Bienvenido al foro de proyectos</h2>
-                <p>Aquí podrás encontrar y compartir información sobre diversos proyectos web.</p>
-                <ul>
-                    <li>Aprende nuevas tecnologías</li>
-                    <li>Comparte tus experiencias</li>
-                    <li>Conecta con otros usuarios</li>
-                </ul>
-            </div>
-        </div>
-    
-        <div id="footer">
-            <p>&copy; 2025 ForoProyectos | Desarrollado con Django 💻</p>
-        </div>
-    </body>
-</html>
+{% block contenido %}
+<h2>Bienvenido al foro de proyectos</h2>
+<p>Aquí podrás encontrar y compartir información sobre diversos proyectos web.</p>
+<ul>
+    <li>Aprende nuevas tecnologías</li>
+    <li>Comparte tus experiencias</li>
+    <li>Conecta con otros usuarios</li>
+</ul>
+{% endblock %}
