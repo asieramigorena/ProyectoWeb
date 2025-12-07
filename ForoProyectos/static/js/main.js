@@ -61,7 +61,7 @@ const buscarUsuario = () => {
         let match = user[i].getElementsByTagName('a')[0];
 
         if (match) {
-            let textvalue = match.textContent || match.innerHTML;
+            let textvalue = match.textContent;
 
             if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
                 user[i].style.display = "";
@@ -80,7 +80,7 @@ const buscarPregunta = () => {
     for (let i = 0; i < pname.length; i++) {
         let match = pregunta[i].getElementsByTagName('a')[0];
         if (match) {
-            let textvalue = match.textContent || match.innerHTML;
+            let textvalue = match.textContent;
 
             if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
                 pregunta[i].style.display = "";
@@ -99,7 +99,7 @@ const buscarRespuesta = () => {
     for (let i = 0; i < pname.length; i++) {
         let match = respuesta[i].getElementsByTagName('a')[0];
         if (match) {
-            let textvalue = match.textContent || match.innerHTML;
+            let textvalue = match.textContent;
 
             if (textvalue.toUpperCase().indexOf(searchbox) > -1) {
                 respuesta[i].style.display = "";
@@ -109,6 +109,90 @@ const buscarRespuesta = () => {
         }
     }
 }
+
+// MENU RESALTAR OPCION SEGUN LA PAGINA ACTUAL (el item seleccionado)
+window.addEventListener("DOMContentLoaded", function () {
+
+    //Pillamos la ruta actual
+    const currentPath = window.location.pathname;
+
+    //Quitamos la clase current de todos los items de la lista -> mirar style.css
+    const menuItems = document.querySelectorAll("#menu li");
+    menuItems.forEach(li => li.classList.remove("current"));
+
+    //Marcamos como current (que este activo el item que sea) según la URL
+    menuItems.forEach(li => {
+        const link = li.querySelector("a");
+        if (link && link.pathname === currentPath) {
+            li.classList.add("current");
+        }
+    });
+
+    //Si hace click marca el item sin esperar recarga
+    menuItems.forEach(li => {
+        li.addEventListener("click", () => {
+            menuItems.forEach(item => item.classList.remove("current"));
+            li.classList.add("current");
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // Obtener todos los items (li) de la lista de usuarios
+    const itemU = document.querySelectorAll("#listaU li");
+    const itemP = document.querySelectorAll("#listaP li");
+    const itemR = document.querySelectorAll("#listaR li");
+    // const items = [...itemU, ...itemP, ...itemR];
+    
+
+    itemU.forEach(item => {
+
+        // Cuando el ratón hace hover sobre el item de la lista
+        item.addEventListener("mouseenter", () => {
+            item.style.backgroundColor = "#333";  
+            item.style.cursor = "pointer";
+        });
+
+        // Cuando el ratón sale del item de la lista
+        item.addEventListener("mouseleave", () => {
+            item.style.backgroundColor = "transparent";
+        });
+
+    });
+
+        itemP.forEach(item => {
+
+        // Cuando el ratón hace hover sobre el item de la lista
+        item.addEventListener("mouseenter", () => {
+            item.style.backgroundColor = "#333";  
+            item.style.cursor = "pointer";
+        });
+
+        // Cuando el ratón sale del item de la lista
+        item.addEventListener("mouseleave", () => {
+            item.style.backgroundColor = "transparent";
+        });
+
+    });
+
+        itemR.forEach(item => {
+
+        // Cuando el ratón hace hover sobre el item de la lista
+        item.addEventListener("mouseenter", () => {
+            item.style.backgroundColor = "#333";  
+            item.style.cursor = "pointer";
+        });
+
+        // Cuando el ratón sale del item de la lista
+        item.addEventListener("mouseleave", () => {
+            item.style.backgroundColor = "transparent";
+        });
+
+    });
+
+});
 
 /* ANIMACION DE TEXTO (Fuente -> https://www.youtube.com/watch?v=h_Uv_9OxA2k)*/
 /*
