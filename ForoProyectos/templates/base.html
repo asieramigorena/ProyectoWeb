@@ -6,10 +6,13 @@
         <meta charset="UTF-8">
         <title>{% block titulo %}ForoProyectos{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'style/style.css' %}">
+        <script src="{% static 'js/main.js' %}"></script>
+        <!--Liberia que he encontrado para modificar el estilo de parrafos dandoles un efecto de typeWriter 8.7.1-->
+        <!--De momento no consigo que funcione-->
+        <!--<script src="https://cdn.jsdelivr.net/npm/typeit@8.8.7/dist/index.umd.min.js"></script>-->
         {% block extra_css %}{% endblock %}
     </head>
-    <body>
-
+    <body>        
         <div id="header">
             <div id="logo">
                 <h1><a href="#">ForoProyectos</a></h1>
@@ -36,5 +39,6 @@
         <div id="footer">
             <p>&copy; 2025 ForoProyectos | Desarrollado con Django 💻</p>
         </div>
+        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
     </body>
 </html>

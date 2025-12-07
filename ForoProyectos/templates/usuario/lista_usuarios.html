@@ -3,9 +3,10 @@
 
 {% block contenido %}
             <h2>Listado de Usuarios</h2>
-            <ul>
+            <input type="text" id="inputUsuario" placeholder="Buscar usuario..." onkeyup="buscarUsuario()">
+            <ul id="listaU">
                 {% for usuario in usuarios %}
-                <li>
+                <li id="Iusuario">
                     <a href="{% url 'detalle_usuario' usuario.id %}">
                         {{ usuario.username }}
                     </a>

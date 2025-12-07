@@ -4,9 +4,10 @@
 
 {% block contenido %}
     <h1>Listado de Preguntas</h1>
-    <ul>
+    <input type="text" id="inputPregunta" placeholder="Buscar pregunta..." onkeyup="buscarPregunta()">
+    <ul id="listaP">
         {% for pregunta in preguntas %}
-            <li>
+            <li id="Ipregunta">
                 <a href="{% url 'detalle_preguntas' pregunta.id %}">
 
                     {{ pregunta.titulo }}

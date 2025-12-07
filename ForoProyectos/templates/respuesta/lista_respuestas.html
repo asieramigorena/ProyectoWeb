@@ -3,9 +3,10 @@
 {% block titulo %}Respuestas a "{{ respuesta.titulo }}"{% endblock %}
 {% block contenido %}
     <h1>Listado de Respuestas</h1>
-
+    <input type="text" id="inputRespuesta" placeholder="Buscar respuesta..." onkeyup="buscarRespuesta()">
+    <ul id="listaR">
     {% for respuesta in respuestas %}
-        <li>
+        <li id="Irespuesta">
             <a href="{% url 'detalle_respuestas' respuesta.id %}">
 
                 {{ respuesta.contenido }}
