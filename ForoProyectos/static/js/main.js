@@ -110,9 +110,7 @@ const buscarRespuesta = () => {
     }
 }
 
-// MENU RESALTAR OPCION SEGUN LA PAGINA ACTUAL (el item seleccionado)
-window.addEventListener("DOMContentLoaded", function () {
-
+function menu(){
     //Pillamos la ruta actual
     const currentPath = window.location.pathname;
 
@@ -135,23 +133,22 @@ window.addEventListener("DOMContentLoaded", function () {
             li.classList.add("current");
         });
     });
-});
+}
 
-
-document.addEventListener("DOMContentLoaded", function () {
+function resaltar(){
 
     // Obtener todos los items (li) de la lista de usuarios
     const itemU = document.querySelectorAll("#listaU li");
     const itemP = document.querySelectorAll("#listaP li");
     const itemR = document.querySelectorAll("#listaR li");
     // const items = [...itemU, ...itemP, ...itemR];
-    
+
 
     itemU.forEach(item => {
 
         // Cuando el ratón hace hover sobre el item de la lista
         item.addEventListener("mouseenter", () => {
-            item.style.backgroundColor = "#333";  
+            item.style.backgroundColor = "#333";
             item.style.cursor = "pointer";
         });
 
@@ -162,11 +159,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-        itemP.forEach(item => {
+    itemP.forEach(item => {
 
         // Cuando el ratón hace hover sobre el item de la lista
         item.addEventListener("mouseenter", () => {
-            item.style.backgroundColor = "#333";  
+            item.style.backgroundColor = "#333";
             item.style.cursor = "pointer";
         });
 
@@ -177,11 +174,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-        itemR.forEach(item => {
+    itemR.forEach(item => {
 
         // Cuando el ratón hace hover sobre el item de la lista
         item.addEventListener("mouseenter", () => {
-            item.style.backgroundColor = "#333";  
+            item.style.backgroundColor = "#333";
             item.style.cursor = "pointer";
         });
 
@@ -191,7 +188,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
+}
 
+// MENU RESALTAR OPCION SEGUN LA PAGINA ACTUAL (el item seleccionado)
+document.addEventListener("DOMContentLoaded", function () {
+    menu();
+    resaltar();
 });
 
 /* ANIMACION DE TEXTO (Fuente -> https://www.youtube.com/watch?v=h_Uv_9OxA2k)*/

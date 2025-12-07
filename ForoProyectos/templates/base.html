@@ -2,44 +2,44 @@
 
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block titulo %}ForoProyectos{% endblock %}</title>
-        <link rel="stylesheet" href="{% static 'style/style.css' %}">
-        <script src="{% static 'js/main.js' %}"></script>
-        <!--Liberia que he encontrado para modificar el estilo de parrafos dandoles un efecto de typeWriter 8.7.1-->
-        <!--De momento no consigo que funcione-->
-        <!--<script src="https://cdn.jsdelivr.net/npm/typeit@8.8.7/dist/index.umd.min.js"></script>-->
-        {% block extra_css %}{% endblock %}
-    </head>
-    <body>        
-        <div id="header">
-            <div id="logo">
-                <h1><a href="#">ForoProyectos</a></h1>
-                <div class="slogan">Comparte y aprende entre todos</div>
-            </div>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titulo %}ForoProyectos{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+    <!--Liberia que he encontrado para modificar el estilo de parrafos dandoles un efecto de typeWriter 8.7.1-->
+    <!--De momento no consigo que funcione-->
+    <!--<script src="https://cdn.jsdelivr.net/npm/typeit@8.8.7/dist/index.umd.min.js"></script>-->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+<div id="header">
+    <div id="logo">
+        <h1><a href="#">ForoProyectos</a></h1>
+        <div class="slogan">Comparte y aprende entre todos</div>
+    </div>
+</div>
 
-        <div id="menubar">
-            <ul id="menu">
-                <li class="current"><a href="{% url "index" %}">Inicio</a></li>
-                <li><a href="{% url 'lista_usuarios' %}">Usuarios</a></li>
-                <li><a href="{% url 'lista_preguntas' %}">Preguntas</a></li>
-                <li><a href="{% url 'lista_respuestas' %}">Respuestas</a></li>
-            </ul>
-        </div>
+<div id="menubar">
+    <ul id="menu">
+        <li class="current"><a href="{% url "index" %}">Inicio</a></li>
+        <li><a href="{% url 'lista_usuarios' %}">Usuarios</a></li>
+        <li><a href="{% url 'lista_preguntas' %}">Preguntas</a></li>
+        <li><a href="{% url 'lista_respuestas' %}">Respuestas</a></li>
+    </ul>
+</div>
 
 
-        <div id="site_content">
-            <div id="content">
-                {% block contenido %}
-                {% endblock %}
-            </div>
-        </div>
+<div id="site_content">
+    <div id="content">
+        {% block contenido %}
+        {% endblock %}
+    </div>
+</div>
 
-        <div id="footer">
-            <p>&copy; 2025 ForoProyectos | Desarrollado con Django 💻</p>
-        </div>
-        <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-    </body>
+<div id="footer">
+    <p>&copy; 2025 ForoProyectos | Desarrollado con Django 💻</p>
+</div>
+<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+</body>
 </html>

@@ -12,7 +12,8 @@
         <ul>
             {% for respuesta in pregunta.respuestas.all %}
                 <li>
-                    <strong>{{ respuesta.autor.username }}</strong> respondió el {{ respuesta.fecha_publicacion|date:"d/m/Y H:i" }}:
+                    <strong>{{ respuesta.autor.username }}</strong> respondió
+                    el {{ respuesta.fecha_publicacion|date:"d/m/Y H:i" }}:
                     <p>{{ respuesta.contenido }}</p>
 
                 </li>
